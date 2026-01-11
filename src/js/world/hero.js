@@ -78,6 +78,24 @@ export default class Hero {
 
     this.collider = this.resources.items.colliderModel.scene
 
+    const heroColorMapTexture = this.resources.items.heroColorMapTexture
+    if (heroColorMapTexture) {
+      heroColorMapTexture.colorSpace = THREE.SRGBColorSpace
+      heroColorMapTexture.flipY = false
+      this.hero.traverse((child) => {
+        if (!(child instanceof THREE.Mesh))
+          return
+
+        const materials = Array.isArray(child.material) ? child.material : [child.material]
+        materials.forEach((material) => {
+          if (material && 'map' in material) {
+            material.map = heroColorMapTexture
+            material.needsUpdate = true
+          }
+        })
+      })
+    }
+
     this.animation = {}
     this.animation.mixer = new THREE.AnimationMixer(this.hero)
     this.animation.actions = {}
@@ -247,8 +265,38 @@ export default class Hero {
       console.warn(`添加动画: ${animation.name}, 时长: ${animation.duration}秒`)
     })
 
+    this.createAnimationAliases(animations)
+
     // Play idle animation by default
     this.playAnimation('idle')
+  }
+
+  createAnimationAliases(animations) {
+    const names = animations.map(animation => animation.name)
+    if (!names.length)
+      return
+
+    const pick = (candidates) => {
+      for (const candidate of candidates) {
+        const needle = candidate.toLowerCase()
+        const found = names.find(name => name.toLowerCase().includes(needle))
+        if (found)
+          return found
+      }
+      return null
+    }
+
+    const idleName = pick(['idle', 'stand']) || names[0]
+    const walkName = pick(['walk', 'locomotion']) || pick(['run']) || idleName
+    const jumpName = pick(['jump']) || idleName
+    const fallName = pick(['fall']) || idleName
+    const sitName = pick(['sit']) || idleName
+
+    this.animations.idle = this.animations[idleName]
+    this.animations.walk = this.animations[walkName]
+    this.animations.jump = this.animations[jumpName]
+    this.animations.fall = this.animations[fallName]
+    this.animations.sit = this.animations[sitName]
   }
 
   setupEventListeners() {

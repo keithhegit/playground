@@ -47,7 +47,12 @@ export default [
   {
     name: 'heroModel',
     type: 'gltfModel',
-    path: 'models/character-soldier.glb',
+    path: 'https://glb.keithhe.com/GLB/mini-characters/character-male-e.glb',
+  },
+  {
+    name: 'heroColorMapTexture',
+    type: 'texture',
+    path: 'https://glb.keithhe.com/GLB/mini-characters/colormap.png',
   },
   {
     name: 'colliderModel',
