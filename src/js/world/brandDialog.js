@@ -17,19 +17,19 @@ export default class BrandDialog {
       brand1: {
         title: '2024年了，前端人是时候给予页面一点 Hero Section 魔法了！！！ (Three.js)',
         content: 'This article is an intermediate-level course on Three.js, and it assumes that you have some prior knowledge of Three.js. However, you don\'t need to worry, as this course will not involve shaders at all. Feel free to dive in!',
-        imageUrl: '/assets/images/hero.gif',
+        imageUrl: '/assets/images/tsc-sunmoon.png',
         url: 'https://juejin.cn/post/7415504438922592294',
       },
       brand2: {
         title: '2025 年了，我不允许有前端不会用 Trae 让页面 Hero Section 变得高级！！！(Threejs)',
         content: 'The Hero Section is the top area of a website\'s homepage, typically featuring eye-catching images, headlines, and brief descriptions designed to capture visitors\' attention and guide them to explore the site further. This section is often the most prominent and crucial part of a website. Through thoughtful design and content selection, it can pique visitors\' interest, enhance user experience, and boost the site\'s overall appeal. Let\'s take a look at today\'s Hero Section and see if it meets your expectations! Of course, the source code will be provided at the end of the article!',
-        imageUrl: '/assets/images/FM2.gif',
+        imageUrl: '/assets/images/tsc-sunmoon.png',
         url: 'https://juejin.cn/post/7472650702340046886',
       },
       brand3: {
         title: '老板花一万大洋让我写的艺术工作室官网？！ HeroSection 再度来袭！(Three.js)',
         content: 'Hello everyone! It\'s been half a month since my last post, and I almost turned back into that familiar "old procrastinator." No, I can\'t let myself fall into that trap! I haven\'t yet brought Web3D to the masses, and I haven\'t let more people experience the charm of 3D graphics (actually, I haven\'t made any money yet). With these thoughts in mind, I\'ve decided to pull myself together and continue bringing you more advanced content about Three.js and Shaders.',
-        imageUrl: '/assets/images/FM3.gif',
+        imageUrl: '/assets/images/tsc-sunmoon.png',
         url: 'https://juejin.cn/post/7478403990141796352',
       },
     }
